@@ -7,9 +7,9 @@ steal ethers by exploiting the fallback function !
   -Change the state of the variable before allowing the msg.sender to withdraw amount
   - Introduce a Lock System , to prevent Reentrance till a single process is not over
   */
-contract EtherStore (
+contract EtherStore {
     mapping ( address => uint ) public balances ;
-    function deposit ( ) public payable { 
+    function deposit() public payable { 
         balances [msg.sender] += msg.value ; // 
    }
    
@@ -21,18 +21,19 @@ contract EtherStore (
         Locked false ; // The system is unlocked after the execution of function
      }
 
-    function withdraw ( uint amount ) public noReentrant(
+    function withdraw ( uint amount ) public noReentrant{
         require ( balances [ msg.sender ] > _amount ) ;
         balances [ msg.sender ] -= _amount ; // As a preventive measure state of this variable must change before any transaction and always precede before transaction
         ( bool sent , ) msg.sender.call ( value : amount } ( " " ) ;// fallback function
         require (sent, " Failed to send Ether " ) ; 
         
    }
-    function getBalance ( ) public view returns ( uint ) {
+    function getBalance( ) public view returns ( uint ) {
         return address(this).balance ;
    }
+  }
 
-contract Attack (
+contract Attack {
    EtherStore public etherStore ;
               I
     constructor (address _etherStoreAddress) public (
@@ -45,9 +46,11 @@ contract Attack (
     function attack() external payable {
         require ( msg.value > = 1 ether ) ;
         etherStore.deposit ( value : 1 ether ) ( ) ;
-        etherStore.withdraw ( 1 ether ) ;
+        etherStore.withdraw ( 1 ether ) ; 
+        }
 
     function getBalance ( ) public view returns ( uint ) {
         return address (this).balance ; 
         }
+   }
 
