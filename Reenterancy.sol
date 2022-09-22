@@ -48,4 +48,6 @@ contract Attack (
         etherStore.withdraw ( 1 ether ) ;
 
     function getBalance ( ) public view returns ( uint ) {
-        return address (this).balance ;
+        return address (this).balance ; 
+        }
+
