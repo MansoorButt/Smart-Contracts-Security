@@ -21,7 +21,7 @@ contract EtherStore (
         Locked false ; // The system is unlocked after the execution of function
      }
 
-    function withdraw ( uint amount ) public (
+    function withdraw ( uint amount ) public noReentrant(
         require ( balances [ msg.sender ] > _amount ) ;
         balances [ msg.sender ] -= _amount ; // As a preventive measure state of this variable must change before any transaction and always precede before transaction
         ( bool sent , ) msg.sender.call ( value : amount } ( " " ) ;// fallback function
