@@ -24,8 +24,8 @@ contract EtherStore (
     function withdraw ( uint amount ) public (
         require ( balances [ msg.sender ] > _amount ) ;
         balances [ msg.sender ] -= _amount ; // As a preventive measure state of this variable must change before any transaction and always precede before transaction
-        ( bool sent , ) msg.sender.call ( value : amount } ( " " ) ;
-        require (sent, " Failed to send Ether " ) ; // fallback function
+        ( bool sent , ) msg.sender.call ( value : amount } ( " " ) ;// fallback function
+        require (sent, " Failed to send Ether " ) ; 
         
    }
     function getBalance ( ) public view returns ( uint ) {
