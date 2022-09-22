@@ -14,9 +14,9 @@ contract EtherStore (
    }
    
     bool internal locked; // A boolean lock to enforce locking system
-    modifier noReentrant ( ) {
+    modifier noReentrant(){
         require (!locked ,"No re-entrancy"); // statement checks if the function is not locked
-        locked true ; // system gets locked 
+        locked true; // system gets locked 
         _; // This line ensures execution of the main funtion
         Locked false ; // The system is unlocked after the execution of function
      }
