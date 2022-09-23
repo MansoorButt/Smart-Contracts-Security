@@ -1,6 +1,6 @@
 pragma solidity ^0.6.10;
 /*
-Hacking: this program the attacker uses the Force Ether Technique and creates a deadlock between all the participants to win the game
+Hacking:In this program the attacker uses the Force Ether Technique and creates a deadlock between all the participants to win the game
 as a result the Contract will crash .
 
 Preventive Technique: " To prevent this , " Line 17 " needs to be commented , which means to not use "address(this).balance" explicitly 
