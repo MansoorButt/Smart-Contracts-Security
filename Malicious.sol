@@ -3,6 +3,7 @@
 /// @title Hiding Malicious Code in a contract
 /// @author Mansoor Butt
 /// @notice In this program we simulate , the technique an attacker can use to run malicious code by manipulating users
+
 /// @dev in Line 22 the attacker will make the user pass the address of MaliciousCode contract as a result 
 ///@dev the log event of the MaliciousCode contract will be triggered
 
@@ -35,4 +36,4 @@ contract MaliciousCode{
     function log() public {
         emit Log("Malicious Code was called"); // this event will be emmited
     }
-}
+
