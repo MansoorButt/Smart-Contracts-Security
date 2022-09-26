@@ -3,7 +3,7 @@
 /// @title Hiding Malicious Code in a contract
 /// @author Mansoor Butt
 /// @notice In this program we simulate , the technique an attacker can use to run malicious code by manipulating users
-/// @dev in Line 21 the attacker will make the user pass the address of MaliciousCode contract as a result 
+/// @dev in Line 22 the attacker will make the user pass the address of MaliciousCode contract as a result 
 ///@dev the log event of the MaliciousCode contract will be triggered
 
 pragma solidity ^0.8.13;
